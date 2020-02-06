@@ -9,6 +9,12 @@ import { spy } from 'sinon';
 
 describe(`HomeComponent`, () => {
 
+    function setup() {
+        const fixture = TestBed.createComponent(HomeComponent);
+        const app = fixture.debugElement.componentInstance;
+        return { fixture, app };
+    }
+
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [HomeComponent], //declare test component
@@ -20,28 +26,28 @@ describe(`HomeComponent`, () => {
         getTestBed().resetTestingModule();
     });
 
-    it('should display `a` element', () => {
-        const fixture = TestBed.createComponent(HomeComponent);
-
+    it('should have span tag as \'Home\'', async(() => {
+        const { app, fixture } = setup();
         fixture.detectChanges();
+        const compile = fixture.debugElement.nativeElement;
+        const spantag = compile.querySelector('span');
+        expect(spantag.textContent).to.equal('Home');
+    }));
 
-        const a = fixture.debugElement.query(By.css('a'));
-
-        expect(a.nativeElement.textContent).to.equal('Add');
-    });
-
-    it('should render styles correctly', () => {
-        const fixture = TestBed.createComponent(HomeComponent);
-
+    it('should have h3 tag as \'Welcome to Dashboard\'', async(() => {
+        const { app, fixture } = setup();
         fixture.detectChanges();
+        const compile = fixture.debugElement.nativeElement;
+        const spantag = compile.querySelector('span');
+        expect(spantag.textContent).to.equal('Welcome to Dashboard');
+    }));
 
-        const addBtn = fixture.debugElement.query(By.css('.addBtn'));
-
-        const {
-            color
-        } = getComputedStyle(addBtn.nativeElement);
-
-        expect(color).to.equal('rgb(0, 255, 0)');
-    })
+    it('should have a tag as \'Logout\'', async(() => {
+        const { app, fixture } = setup();
+        fixture.detectChanges();
+        const compile = fixture.debugElement.nativeElement;
+        const atag = compile.querySelector('a');
+        expect(atag.textContent).to.equal('Logout');
+    }));
 
 });

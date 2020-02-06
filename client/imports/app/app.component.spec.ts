@@ -29,15 +29,5 @@ describe(`AppComponent`, () => {
         getTestBed().resetTestingModule();
     });
 
-    it('should display h1 element', () => {
-        const fixture = TestBed.createComponent(AppComponent);
-
-        fixture.detectChanges();
-
-        const h1 = fixture.debugElement.query(By.css('h1'));
-
-        expect(h1.nativeElement.textContent).to.equal('Todos');
-    });
-
 
 });

@@ -9,6 +9,12 @@ import { spy } from 'sinon';
 
 describe(`LoginComponent`, () => {
 
+    function setup() {
+        const fixture = TestBed.createComponent(LoginComponent);
+        const app = fixture.debugElement.componentInstance;
+        return { fixture, app };
+    }
+
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [LoginComponent], //declare test component
@@ -20,28 +26,12 @@ describe(`LoginComponent`, () => {
         getTestBed().resetTestingModule();
     });
 
-    it('should display `a` element', () => {
-        const fixture = TestBed.createComponent(LoginComponent);
-
+    it('should have span tag as \'Login\'', async(() => {
+        const { app, fixture } = setup();
         fixture.detectChanges();
-
-        const a = fixture.debugElement.query(By.css('a'));
-
-        expect(a.nativeElement.textContent).to.equal('Add');
-    });
-
-    it('should render styles correctly', () => {
-        const fixture = TestBed.createComponent(LoginComponent);
-
-        fixture.detectChanges();
-
-        const addBtn = fixture.debugElement.query(By.css('.addBtn'));
-
-        const {
-            color
-        } = getComputedStyle(addBtn.nativeElement);
-
-        expect(color).to.equal('rgb(0, 255, 0)');
-    })
+        const compile = fixture.debugElement.nativeElement;
+        const spantag = compile.querySelector('span');
+        expect(spantag.textContent).to.equal('Login');
+    }));
 
 });
