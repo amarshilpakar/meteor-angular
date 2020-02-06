@@ -1,0 +1,67 @@
+.deleteBtn {
+    color: red;
+  }
+  .addBtn {
+    color: rgb(0, 255, 0);
+  }
+  
+  .card {
+    border-radius: 20px !important;
+  }
+  
+  .btn.bg-purple {
+    background: #811E68;
+    color: white !important;
+  }
+  
+  .text-color-purple {
+    color: #811E68;
+    cursor: default;
+    pointer-events: none;
+  }
+  
+  .btn {
+    font-weight: 500;
+  }
+  
+  .btn.focus, .btn:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  .btn:hover {
+    background-color: #4f2455;
+  }
+  
+  .form-control:focus {
+    border-color: #811E68;
+    border: 0.1rem solid #811E68 !important;
+    box-shadow: none !important;
+  }
+  
+  .is-invalid + label {
+    color: #dc3545;
+  }
+  
+  .form-control.is-invalid:focus, .was-validated .form-control:invalid:focus {
+    border-color: #dc3545;
+    border: 0.1rem solid #dc3545  !important;
+  }
+  
+  .focus-input {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  
+  input:focus + label {
+    font-weight: bold;
+  }
+  
+  .invalid-feedback {
+    display: block;
+  }
+  
+  .mainDiv {
+    background-color: #e1e3e8; 
+    height:calc(100vh - 56px);
+  }
